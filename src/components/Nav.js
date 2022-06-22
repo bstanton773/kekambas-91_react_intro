@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Nav(props) {
-    console.log(props)
+    
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
