@@ -28,7 +28,7 @@ function App(props) {
                 <h1>Hello World</h1>
                 <h4>Current Value: {count}</h4>
                 {myButtonSteps.map((step, i) => <Button step={step} handleClick={handleButtonClick} key={i} />)}
-                <RacerTable />
+                <RacerTable racers={racers} />
             </div>
         </div>
     );

@@ -1,7 +1,8 @@
 import React from 'react'
+import RacerRow from './RacerRow';
 
-export default function RacerTable() {
-    let headers = ['#', 'First', 'Last', 'Points', 'Wins', 'Nationality', 'Constructor']
+export default function RacerTable(props) {
+    let headers = ['#', 'First', 'Last', 'Points', 'Wins', 'Nationality', 'Constructor'];
     return (
         <>
             <h1 className='text-center mt-5'>Driver Standings</h1>
@@ -12,33 +13,7 @@ export default function RacerTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Brian</td>
-                        <td>Stanton</td>
-                        <td>100</td>
-                        <td>10</td>
-                        <td>American</td>
-                        <td>Coding Temple</td>
-                    </tr>
-                    <tr>
-                        <th>1</th>
-                        <td>Brian</td>
-                        <td>Stanton</td>
-                        <td>100</td>
-                        <td>10</td>
-                        <td>American</td>
-                        <td>Coding Temple</td>
-                    </tr>
-                    <tr>
-                        <th>1</th>
-                        <td>Brian</td>
-                        <td>Stanton</td>
-                        <td>100</td>
-                        <td>10</td>
-                        <td>American</td>
-                        <td>Coding Temple</td>
-                    </tr>
+                    {props.racers.map((racer, idx) => <RacerRow racer={racer} key={idx} />)}
                 </tbody>
             </table>
         </>
