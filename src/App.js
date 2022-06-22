@@ -25,10 +25,10 @@ function App(props) {
         <div id="fromApp">
             <Nav brand="Kekambas React"/>
             <div className='container'>
-            <h1>Hello World</h1>
-            <h4>Current Value: {count}</h4>
-            {myButtonSteps.map((step, i) => <Button step={step} handleClick={handleButtonClick} key={i} />)}
-            <RacerTable />
+                <h1>Hello World</h1>
+                <h4>Current Value: {count}</h4>
+                {myButtonSteps.map((step, i) => <Button step={step} handleClick={handleButtonClick} key={i} />)}
+                <RacerTable />
             </div>
         </div>
     );
