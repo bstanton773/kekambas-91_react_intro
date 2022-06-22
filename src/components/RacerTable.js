@@ -7,7 +7,7 @@ export default function RacerTable(props) {
     return (
         <>
             <h1 className='text-center mt-5'>Driver Standings</h1>
-            <RacerForm />
+            <RacerForm handleFormSubmit={props.handleFormSubmit} />
             <table className='table table-primary table-striped'>
                 <thead>
                     <tr>
