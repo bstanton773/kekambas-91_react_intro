@@ -6,9 +6,39 @@ export default class RacerTable extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            racers: []
+            racers: [],
+            season: 2022,
+            round: 9
         }
     };
+
+    componentDidMount(){
+        fetch(`https://ergast.com/api/f1/2022/9/driverStandings.json`)
+        .then(res => res.json())
+        .then(data => {
+            let racerStandings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+            this.setState({racers : racerStandings})
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        console.log(prevState, this.state)
+        if (prevState.round != this.state.round || prevState.season != this.state.season){
+            fetch(`https://ergast.com/api/f1/${this.state.season}/${this.state.round}/driverStandings.json`)
+            .then(res => res.json())
+            .then(data => {
+                let racerStandings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+                this.setState({racers : racerStandings})
+            })
+        }
+    }
+
+    handleFormSubmit = (event) => {
+        event.preventDefault();
+        const newSeason = event.target.season.value;
+        const newRound = event.target.round.value;
+        this.setState({season: newSeason, round: newRound});
+    }
 
 
     render(){
@@ -16,7 +46,7 @@ export default class RacerTable extends React.Component{
         return (
             <>
                 <h1 className='text-center mt-5'>Driver Standings</h1>
-                <RacerForm handleFormSubmit={this.props.handleFormSubmit} />
+                <RacerForm handleFormSubmit={this.handleFormSubmit} />
                 <table className='table table-primary table-striped'>
                     <thead>
                         <tr>
