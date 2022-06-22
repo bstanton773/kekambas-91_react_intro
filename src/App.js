@@ -9,6 +9,7 @@ function App(props) {
     const [racers, setRacers] = useState([]);
     const [season, setSeason] = useState(2022);
     const [round, setRound] = useState(9);
+
     useEffect(() => {
         fetch(`https://ergast.com/api/f1/${season}/${round}/driverStandings.json`)
         .then(res => res.json())
@@ -17,14 +18,21 @@ function App(props) {
             setRacers(racerStandings)
         })
     }, [round, season])
+
     const handleButtonClick = (step) => {
         setCount(count + step)
     }
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log('Form has been submitted');
+        const newSeason = event.target.season.value;
+        const newRound = event.target.round.value;
+        setSeason(newSeason);
+        setRound(newRound);
     }
+
     const myButtonSteps = [1, 10, 100, 1000]
+
     return (
         <div id="fromApp">
             <Nav brand="Kekambas React"/>
