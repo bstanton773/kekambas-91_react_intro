@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from './components/Button';
 import Nav from './components/Nav';
-import RacerTable from './components/RacerTable';
+import RacerTable from './views/RacerTable';
 
 
 function App(props) {

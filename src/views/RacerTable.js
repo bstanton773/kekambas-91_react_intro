@@ -1,6 +1,6 @@
 import React from 'react'
-import RacerForm from './RacerForm';
-import RacerRow from './RacerRow';
+import RacerForm from '../components/RacerForm';
+import RacerRow from '../components/RacerRow';
 
 export default class RacerTable extends React.Component{
     render(){
