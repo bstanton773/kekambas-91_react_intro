@@ -10,8 +10,12 @@ function App(props) {
     console.log('App rendered!')
     fetch('https://ergast.com/api/f1/2021/10/driverStandings.json')
       .then(res => res.json())
-      .then(data => console.log(data))
-  })
+      .then(data => {
+        console.log(data)
+        let racerStandings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+        setRacers(racerStandings)
+      })
+  }, [])
   const handleButtonClick = (step) => {
     setCount(count + step)
   }
