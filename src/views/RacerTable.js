@@ -3,6 +3,14 @@ import RacerForm from '../components/RacerForm';
 import RacerRow from '../components/RacerRow';
 
 export default class RacerTable extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            racers: []
+        }
+    };
+
+
     render(){
         let headers = ['#', 'First', 'Last', 'Points', 'Wins', 'Nationality', 'Constructor'];
         return (
@@ -16,7 +24,7 @@ export default class RacerTable extends React.Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.racers.map((racer, idx) => <RacerRow racer={racer} key={idx} />)}
+                        {this.state.racers.map((racer, idx) => <RacerRow racer={racer} key={idx} />)}
                     </tbody>
                 </table>
             </>
