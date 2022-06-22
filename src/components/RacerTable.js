@@ -1,4 +1,5 @@
 import React from 'react'
+import RacerForm from './RacerForm';
 import RacerRow from './RacerRow';
 
 export default function RacerTable(props) {
@@ -6,6 +7,7 @@ export default function RacerTable(props) {
     return (
         <>
             <h1 className='text-center mt-5'>Driver Standings</h1>
+            <RacerForm />
             <table className='table table-primary table-striped'>
                 <thead>
                     <tr>
