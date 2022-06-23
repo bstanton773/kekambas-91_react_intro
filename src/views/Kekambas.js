@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class Kekambas extends Component {
     constructor(props){
@@ -28,6 +29,7 @@ export default class Kekambas extends Component {
                 <ul>
                     {this.state.kekambas.map(k => <li key={k.id}>{k.first_name} {k.last_name}</li>)}
                 </ul>
+                <Link to='/standings'><button className='btn btn-danger'>Go To Standings</button></Link>
             </>
         )
     }

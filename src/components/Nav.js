@@ -14,7 +14,7 @@ export default function Nav(props) {
                 <div className="navbar-nav">
                     <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                     <Link className="nav-link" to="/standings">Standings</Link>
-                    <Link className="nav-link" to="/">Pricing</Link>
+                    <Link className="nav-link" to="/kekambas">Kekambas</Link>
                     <Link className="nav-link" to="/">Other</Link>
                 </div>
                 </div>
