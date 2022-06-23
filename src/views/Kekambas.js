@@ -17,7 +17,7 @@ export default class Kekambas extends Component {
     render() {
         return (
             <>
-                <h1 className='text-center'>Kekambas</h1>
+                <h1 className='text-center'>Kekambas Class</h1>
                 <ul>
                     {this.state.kekambas.map(k => <li key={k.id}>{k.first_name} {k.last_name}</li>)}
                 </ul>

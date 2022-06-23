@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './views/Home';
 import Kekambas from './views/Kekambas';
+import KekambasFun from './views/KekambasFun';
 import RacerTable from './views/RacerTable';
 
 
@@ -15,7 +16,7 @@ function App(props) {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/standings' element={<RacerTable />} />
-                    <Route path='/kekambas' element={<Kekambas />} />
+                    <Route path='/kekambas' element={<KekambasFun />} />
                 </Routes>
             </div>
         </div>
