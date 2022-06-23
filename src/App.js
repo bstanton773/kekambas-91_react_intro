@@ -16,7 +16,7 @@ function App(props) {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/standings' element={<RacerTable />} />
-                    <Route path='/kekambas' element={<KekambasFun />} />
+                    <Route path='/kekambas' element={<Kekambas />} />
                 </Routes>
             </div>
         </div>

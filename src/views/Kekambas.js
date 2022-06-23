@@ -8,7 +8,13 @@ export default class Kekambas extends Component {
         }
     }
 
-    componentDidMount(){
+    // componentDidMount(){
+    //     fetch('https://kekambas-bs.herokuapp.com/kekambas')
+    //         .then(res => res.json())
+    //         .then(data => this.setState({kekambas: data}))
+    // }
+
+    handleClick = () => {
         fetch('https://kekambas-bs.herokuapp.com/kekambas')
             .then(res => res.json())
             .then(data => this.setState({kekambas: data}))
@@ -18,6 +24,7 @@ export default class Kekambas extends Component {
         return (
             <>
                 <h1 className='text-center'>Kekambas Class</h1>
+                <button className='btn btn-success' onClick={this.handleClick}>Get Kekambas</button>
                 <ul>
                     {this.state.kekambas.map(k => <li key={k.id}>{k.first_name} {k.last_name}</li>)}
                 </ul>
