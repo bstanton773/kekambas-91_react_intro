@@ -24,6 +24,7 @@ function App(props) {
     }
 
     const logout = () => {
+        localStorage.clear()
         setLoggedIn(false)
     }
 
@@ -38,7 +39,7 @@ function App(props) {
                     <Route path='/standings' element={<RacerTable />} />
                     <Route path='/register' element={<Register flashMessage={flashMessage} />} />
                     <Route path='/login' element={<Login flashMessage={flashMessage} login={login} />} />
-                    <Route path='/create-post' element={<CreatePost flashMessage={flashMessage} login={login} />} />
+                    <Route path='/create-post' element={<CreatePost flashMessage={flashMessage} loggedIn={loggedIn} />} />
                 </Routes>
             </div>
         </div>

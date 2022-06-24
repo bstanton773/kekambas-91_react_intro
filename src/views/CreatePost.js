@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function CreatePost() {
+export default function CreatePost(props) {
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        if (!props.loggedIn){
+            props.flashMessage('You must be logged in to create a post', 'danger')
+            navigate('/login')
+        }
+    }, [props.loggedIn])
 
     const handleSubmit = (e) => {
         e.preventDefault();
