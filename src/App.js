@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import AlertMessage from './components/AlertMessage';
 import Nav from './components/Nav';
+import CreatePost from './views/CreatePost';
 import Home from './views/Home';
 import Login from './views/Login';
 import RacerTable from './views/RacerTable';
@@ -37,6 +38,7 @@ function App(props) {
                     <Route path='/standings' element={<RacerTable />} />
                     <Route path='/register' element={<Register flashMessage={flashMessage} />} />
                     <Route path='/login' element={<Login flashMessage={flashMessage} login={login} />} />
+                    <Route path='/create-post' element={<CreatePost flashMessage={flashMessage} login={login} />} />
                 </Routes>
             </div>
         </div>

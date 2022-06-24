@@ -15,7 +15,14 @@ export default function Nav(props) {
                     <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                     <Link className="nav-link" to="/standings">Standings</Link>
                     <Link className="nav-link" to="/register">Register</Link>
-                    {props.loggedIn ? <Link className="nav-link" to="/" onClick={props.logout}>Logout</Link> : <Link className="nav-link" to="/login">Login</Link>}
+                    {props.loggedIn ? (
+                        <>
+                            <Link className="nav-link" to="/" onClick={props.logout}>Logout</Link>
+                            <Link className="nav-link" to="/create-post">Create Post</Link>
+                        </>
+                        ) : (
+                        <Link className="nav-link" to="/login">Login</Link>
+                    )}
                     
                 </div>
                 </div>
