@@ -14,7 +14,31 @@ export default function CreatePost(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
+
+        let myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
+        let myToken = localStorage.getItem('token');
+        myHeaders.append('Authorization', `Bearer ${myToken}`);
+
+        let title = e.target.title.value;
+        let body = e.target.body.value;
+
+        let data = JSON.stringify({title, body})
+
+        fetch('http://localhost:5000/api/posts', {
+            method: 'POST',
+            headers: myHeaders,
+            body: data
+        }).then(res => res.json())
+            .then(data => {
+                if (data.error){
+                    props.flashMessage(data.error, 'danger')
+                } else {
+                    props.flashMessage(`The post ${data.title} has been created`, 'success')
+                    navigate('/')
+                }
+            })
+
     }
 
     return (
