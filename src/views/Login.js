@@ -5,9 +5,25 @@ export default function Login(props) {
 
     let navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(e);
+
+        let username = e.target.username.value;
+        let password = e.target.password.value;
+
+        let myHeaders = new Headers();
+        myHeaders.append('Authorization', 'Basic ' + btoa(`${username}:${password}`))
+
+        let response = await fetch('http://localhost:5000/api/token', { headers: myHeaders })
+        let data = await response.json()
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('expiration', data.expiration);
+
+        props.login();
+
+        props.flashMessage('You have successfully logged in', 'success')
+
+        navigate('/')
     }
 
     return (
