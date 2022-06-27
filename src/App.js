@@ -7,6 +7,7 @@ import Home from './views/Home';
 import Login from './views/Login';
 import RacerTable from './views/RacerTable';
 import Register from './views/Register';
+import SinglePost from './views/SinglePost';
 
 
 function App(props) {
@@ -40,6 +41,7 @@ function App(props) {
                     <Route path='/register' element={<Register flashMessage={flashMessage} />} />
                     <Route path='/login' element={<Login flashMessage={flashMessage} login={login} />} />
                     <Route path='/create-post' element={<CreatePost flashMessage={flashMessage} loggedIn={loggedIn} />} />
+                    <Route path='/posts/:postId' element={<SinglePost />} />
                 </Routes>
             </div>
         </div>
