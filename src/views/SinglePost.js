@@ -15,8 +15,11 @@ export default function SinglePost(props) {
                     console.warn('There was an issue.')
                 }
             })
-            .then(data => console.log(data))
-    })
+            .then(data => {
+                console.log(data)
+                setPost(data)
+            })
+    }, [params.postId])
     
     return (
         <div>SinglePost {params.postId}</div>
